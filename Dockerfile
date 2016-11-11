@@ -1,11 +1,12 @@
 FROM bassoman/nodejs
 MAINTAINER Jon Lancelle <bassoman@gmail.com>
 
-#RUN npm install ember-cli@0.1.4 bower
-RUN npm install bower
-
-RUN npm install ember-cli@2.9.1
-
-RUN apt-get install ruby -y
-
+RUN apt-get update \
+  && apt-get install ruby -y
 RUN gem install foreman --no-rdoc --no-ri
+
+RUN npm install -g bower
+RUN npm install -g ember-cli@2.9.1
+
+# allow bower to run nicely as root user
+RUN echo '{ "allow_root": true }' > /root/.bowerrc
