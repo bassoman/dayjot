@@ -1,3 +1,9 @@
+## The Dockerizing of dayjot
+
+Addition of some more functionality:
+* Categories
+* ?
+
 <a href="https://dayjot.com"><img src="http://i.imgur.com/8j58X6U.png" align="left" height="50"></a>
 ### &nbsp; An alternative to [OhLife][ol]
 
