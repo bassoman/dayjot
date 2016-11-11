@@ -1,2 +1,2 @@
 FROM bassoman/nodejs
-MAINTAINER "Jon Lancelle"
+MAINTAINER Jon Lancelle <bassoman@gmail.com>
