@@ -5,9 +5,11 @@ development:
   pool: 5
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
+  host: db
 
 test:
   adapter: postgresql
   database: dayjot_test
   username: <%= ENV["DB_USERNAME"] %>
   password: <%= ENV["DB_PASSWORD"] %>
+  host: db
