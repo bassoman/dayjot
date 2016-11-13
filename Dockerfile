@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get install -y build-essential
 
 # for a JS runtime
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs npm && apt-get clean
+RUN apt-get install -y nodejs && apt-get clean
 
 RUN gem install foreman --no-rdoc --no-ri
 
