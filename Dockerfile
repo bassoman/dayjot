@@ -9,11 +9,12 @@ ADD . /app
 
 RUN useradd -ms /bin/bash rails
 RUN chown -R rails:rails .
-USER rails
 
 # for a JS runtime
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN sudo apt-get install -y nodejs && sudo apt-get clean
+RUN apt-get install -y nodejs && apt-get clean
+
+USER rails
 
 RUN gem install foreman --no-rdoc --no-ri
 
