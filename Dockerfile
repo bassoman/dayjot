@@ -15,9 +15,13 @@ RUN npm install -g ember-cli@2.9.1
 # allow bower to run nicely as root user
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
 
-RUN useradd -ms /bin/bash app
-RUN chown -R app:app .
-USER app
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
+
+RUN useradd -ms /bin/bash rails
+RUN chown -R rails:rails .
+USER rails
 
 ENV GEM_HOME /home/app/.gems
 #RUN gem install bundler
