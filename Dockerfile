@@ -3,6 +3,10 @@ MAINTAINER Jon Lancelle <bassoman@gmail.com>
 
 RUN apt-get update -qq && apt-get install -y build-essential sudo
 
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
+
 RUN useradd -ms /bin/bash rails
 RUN chown -R rails:rails .
 USER rails
@@ -18,10 +22,6 @@ RUN npm install -g ember-cli@2.9.1
 
 # allow bower to run nicely as root user
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
-
-RUN mkdir /app
-WORKDIR /app
-ADD . /app
 
 ENV GEM_HOME /home/app/.gems
 #RUN gem install bundler
