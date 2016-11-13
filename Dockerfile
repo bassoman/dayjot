@@ -1,11 +1,15 @@
 FROM ruby:2.2.0
 MAINTAINER Jon Lancelle <bassoman@gmail.com>
 
-RUN apt-get update -qq && apt-get install -y build-essential
+RUN apt-get update -qq && apt-get install -y build-essential sudo
+
+RUN useradd -ms /bin/bash rails
+RUN chown -R rails:rails .
+USER rails
 
 # for a JS runtime
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get install -y nodejs && apt-get clean
+RUN sudo apt-get install -y nodejs && sudo apt-get clean
 
 RUN gem install foreman --no-rdoc --no-ri
 
@@ -18,10 +22,6 @@ RUN echo '{ "allow_root": true }' > /root/.bowerrc
 RUN mkdir /app
 WORKDIR /app
 ADD . /app
-
-RUN useradd -ms /bin/bash rails
-RUN chown -R rails:rails .
-USER rails
 
 ENV GEM_HOME /home/app/.gems
 #RUN gem install bundler
