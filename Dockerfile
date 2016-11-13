@@ -1,4 +1,4 @@
-FROM ruby:2.2.0
+FROM ruby:2.1.4
 MAINTAINER Jon Lancelle <bassoman@gmail.com>
 
 RUN apt-get update -qq && apt-get install -y build-essential sudo
@@ -23,6 +23,6 @@ RUN useradd -ms /bin/bash rails
 RUN chown -R rails:rails .
 USER rails
 
-ENV GEM_HOME /home/rails/.gems
+#ENV GEM_HOME /home/rails/.gems
 #RUN gem install bundler
 #RUN bundle
