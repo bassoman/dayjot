@@ -5,9 +5,6 @@ services:
     image: postgres
   app:
     build: .
-    command:
-      - cd rails && ./bin/setup
-      - foreman start -f Procfile.local
     ports:
       - "3000:3000"
     volumes:
